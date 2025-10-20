@@ -1,0 +1,150 @@
+/* -------------------------
+   RESET BASIQUE
+------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* -------------------------
+   BODY
+------------------------- */
+body {
+    background-color: #f5f5f5; /* Fond clair */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* -------------------------
+   HEADER ET NAVIGATION
+------------------------- */
+header {
+    background: linear-gradient(90deg, #00ff7f, #1e90ff); /* Dégradé vert citron → bleu */
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fffa;
+}
+
+/* -------------------------
+   HERO SECTION
+------------------------- */
+.hero {
+    background: url('https://www.pagesjaunes.online/blog/wp-content/uploads/2020/02/zone-industrielle-douala.jpg') no-repeat center center/cover;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* -------------------------
+   SERVICES SECTION
+------------------------- */
+.services-overview {
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.services-overview h3 {
+    font-size: 2em;
+    color: #1e90ff;
+    margin-bottom: 30px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-cards .card {
+    background: linear-gradient(145deg, #d4d4d4, #f5f5f5);
+    border: 2px solid #00ff7f;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-cards .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.service-cards .card h4 {
+    color: #00ff7f;
+    margin-bottom: 10px;
+}
+
+/* -------------------------
+   FOOTER
+------------------------- */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* -------------------------
+   RESPONSIVE
+------------------------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMT Avenir - Contact</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+    <style>
+        /* Styles du formulaire de contact */
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border: 2px solid #00ff7f;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00ff7f;
+            border-radius: 8px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00ff7f, #1e90ff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(90deg, #1e90ff, #00ff7f);
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>CMT Avenir</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Nos Services</a></li>
+                <li><a href="projets.html">Projets en cours</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulaire de contact -->
+    <main>
+        <div class="contact-container">
+            <h2>Contactez-nous</h2>
+            <form id="contactForm" action="php/traitement_contact.php" method="POST">
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required>
+                    <div class="error" id="errorNom"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="errorEmail"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sujet">Sujet :</label>
+                    <input type="text" id="sujet" name="sujet" required>
+                    <div class="error" id="errorSujet"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <div class="error" id="errorMessage"></div>
+                </div>
+
+                <button type="submit" class="btn-submit">Envoyer</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CMT Avenir. Tous droits réservés.</p>
+    </footer>
+
+    <!-- JavaScript validation -->
+    <script>
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(event) {
+            let valid = true;
+
+            // Nom
+            const nom = document.getElementById('nom');
+            if(nom.value.trim() === '') {
+                document.getElementById('errorNom').textContent = "Le nom est requis";
+                valid = false;
+            } else document.getElementById('errorNom').textContent = "";
+
+            // Email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(email.value)) {
+                document.getElementById('errorEmail').textContent = "Email invalide";
+                valid = false;
+            } else document.getElementById('errorEmail').textContent = "";
+
+            // Sujet
+            const sujet = document.getElementById('sujet');
+            if(sujet.value.trim() === '') {
+                document.getElementById('errorSujet').textContent = "Le sujet est requis";
+                valid = false;
+            } else document.getElementById('errorSujet').textContent = "";
+
+            // Message
+            const message = document.getElementById('message');
+            if(message.value.trim() === '') {
+                document.getElementById('errorMessage').textContent = "Le message est requis";
+                valid = false;
+            } else document.getElementById('errorMessage').textContent = "";
+
+            if(!valid) event.preventDefault();
+        });
+    </script>
+</body>
+</html>

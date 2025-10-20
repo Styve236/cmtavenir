@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMT Avenir - Projets en cours</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+    <style>
+        /* Styles additionnels pour la galerie responsive */
+        .project-media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .project-media img, .project-media video {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #00ff7f;
+        }
+        .project-card {
+            margin-bottom: 40px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .project-media img, .project-media video {
+                width: 45%; /* Deux médias par ligne */
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-media img, .project-media video {
+                width: 100%; /* Un média par ligne sur petit écran */
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>CMT Avenir</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Nos Services</a></li>
+                <li><a href="projets.html" class="active">Projets en cours</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Projets -->
+    <main>
+        <section class="services-overview">
+            <h2>Projets en cours</h2>
+            <p>Découvrez nos projets industriels actuellement en développement, avec photos et vidéos pour plus de transparence.</p>
+
+            <!-- Exemple Projet A -->
+            <div class="card project-card">
+                <h4>Projet A</h4>
+                <p>Conception et fabrication d’une structure métallique pour une usine locale situé au littoral plus precisement en nkapa.</p>
+                <div class="project-media">
+                    <img src="media/projetA_photo1.jpg" alt="Projet A - Photo 1">
+                    <img src="media/projetA_photo2.jpg" alt="Projet A - Photo 2">
+                    <img src="media/projetA_photo3.jpg" alt="Projet A - Photo 3">
+                    <video controls>
+                        <source src="media/projetA_video1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                    <video controls>
+                        <source src="media/projetA_video2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Exemple Projet B -->
+            <div class="card project-card">
+                <h4>Projet B</h4>
+                <p>Soudure et assemblage de pièces pour un équipement industriel dans la societé socapalm.</p>
+                <div class="project-media">
+                    <img src="media/projetB_photo1.jpg" alt="Projet B - Photo 1">
+                    <img src="media/projetB_photo2.jpg" alt="Projet B - Photo 2">
+                    <img src="media/projetB_photo3.jpg" alt="Projet B - Photo 3">
+                    <video controls>
+                        <source src="media/projetB_video1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                    <video controls>
+                        <source src="media/projetB_video2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Exemple Projet C -->
+            <div class="card project-card">
+                <h4>Projet C</h4>
+                <p>Maintenance et modernisation d’un ensemble de machines de production d'huile de palme.</p>
+                <div class="project-media">
+                    <img src="media/projetC_photo1.jpg" alt="Projet C - Photo 1">
+                    <img src="media/projetC_photo2.jpg" alt="Projet C - Photo 2">
+                    <img src="media/projetC_photo3.jpg" alt="Projet C - Photo 3">
+                    <video controls>
+                        <source src="media/projetC_video1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                    <video controls>
+                        <source src="media/projetC_video2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CMT Avenir. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

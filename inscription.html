@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMT Avenir - Inscription</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+    <style>
+        /* Styles spécifiques au formulaire */
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border: 2px solid #00ff7f;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00ff7f;
+            border-radius: 8px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00ff7f, #1e90ff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn-submit:hover {
+            background: linear-gradient(90deg, #1e90ff, #00ff7f);
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>CMT Avenir</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Nos Services</a></li>
+                <li><a href="projets.html">Projets en cours</a></li>
+                <li><a href="inscription.html" class="active">Inscription</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulaire d'inscription -->
+    <main>
+        <div class="form-container">
+            <h2>Inscription Utilisateur</h2>
+            <form id="inscriptionForm" action="php/traitement_inscription.php" method="POST">
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required>
+                    <div class="error" id="errorNom"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                    <div class="error" id="errorPrenom"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="errorEmail"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="error" id="errorPassword"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Rôle :</label>
+                    <select id="role" name="role" required>
+                        <option value="">--Sélectionnez--</option>
+                        <option value="client">Client</option>
+                        <option value="employe">Employé</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">S'inscrire</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CMT Avenir. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script JS pour validation dynamique -->
+    <script>
+        const form = document.getElementById('inscriptionForm');
+
+        form.addEventListener('submit', function(event){
+            let valid = true;
+
+            // Nom
+            const nom = document.getElementById('nom');
+            if(nom.value.trim() === '') {
+                document.getElementById('errorNom').textContent = "Le nom est requis";
+                valid = false;
+            } else {
+                document.getElementById('errorNom').textContent = "";
+            }
+
+            // Prénom
+            const prenom = document.getElementById('prenom');
+            if(prenom.value.trim() === '') {
+                document.getElementById('errorPrenom').textContent = "Le prénom est requis";
+                valid = false;
+            } else {
+                document.getElementById('errorPrenom').textContent = "";
+            }
+
+            // Email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(email.value)) {
+                document.getElementById('errorEmail').textContent = "Email invalide";
+                valid = false;
+            } else {
+                document.getElementById('errorEmail').textContent = "";
+            }
+
+            // Mot de passe
+            const password = document.getElementById('password');
+            if(password.value.length < 6) {
+                document.getElementById('errorPassword').textContent = "Mot de passe ≥ 6 caractères";
+                valid = false;
+            } else {
+                document.getElementById('errorPassword').textContent = "";
+            }
+
+            if(!valid) event.preventDefault();
+        });
+    </script>
+</body>
+</html>

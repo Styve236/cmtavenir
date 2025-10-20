@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMT Avenir - Agenda Interactif</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+    <style>
+        /* Styles du calendrier */
+        .calendar-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #00ff7f;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .calendar-header button {
+            padding: 10px 15px;
+            background: linear-gradient(90deg, #00ff7f, #1e90ff);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .calendar-header button:hover {
+            background: linear-gradient(90deg, #1e90ff, #00ff7f);
+        }
+        table.calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table.calendar th, table.calendar td {
+            border: 1px solid #00ff7f;
+            width: 14.28%;
+            height: 100px;
+            text-align: center;
+            vertical-align: top;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+        table.calendar th {
+            background-color: #1e90ff;
+            color: white;
+        }
+        td.today {
+            background-color: #00ff7f;
+            color: #000;
+        }
+        td.event-day {
+            background-color: #ffd700;
+        }
+        .event-popup {
+            display: none;
+            position: absolute;
+            top: 25px;
+            left: 5px;
+            width: 90%;
+            background: #1e90ff;
+            color: white;
+            padding: 5px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            table.calendar th, table.calendar td { height: 80px; font-size: 0.8em; }
+        }
+        @media (max-width: 480px) {
+            table.calendar th, table.calendar td { height: 60px; font-size: 0.7em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>CMT Avenir</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Nos Services</a></li>
+                <li><a href="projets.html">Projets en cours</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="agenda.html" class="active">Agenda</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Calendrier -->
+    <main>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt; Précédent</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth">Suivant &gt;</button>
+            </div>
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Dim</th>
+                        <th>Lun</th>
+                        <th>Mar</th>
+                        <th>Mer</th>
+                        <th>Jeu</th>
+                        <th>Ven</th>
+                        <th>Sam</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Calendrier généré par JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CMT Avenir. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script JS pour calendrier interactif -->
+    <script>
+        const monthYear = document.getElementById('monthYear');
+        const calendarBody = document.getElementById('calendar-body');
+        const prevMonth = document.getElementById('prevMonth');
+        const nextMonth = document.getElementById('nextMonth');
+
+        let today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+
+        // Exemple d'événements : jour => description
+        const events = {
+            '2025-09-20': ['Projet A : inspection chantier', 'Réunion client B'],
+            '2025-09-22': ['Maintenance machine C'],
+            '2025-09-25': ['Livraison matériaux']
+        };
+
+        function generateCalendar(month, year) {
+            calendarBody.innerHTML = '';
+            monthYear.textContent = new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(new Date(year, month));
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+
+                    if (i === 0 && j < firstDay) {
+                        cell.textContent = '';
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        const fullDate = `${year}-${String(month+1).padStart(2,'0')}-${String(date).padStart(2,'0')}`;
+                        cell.textContent = date;
+
+                        if(date === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                            cell.classList.add('today');
+                        }
+
+                        // Vérifier si il y a un événement
+                        if(events[fullDate]) {
+                            cell.classList.add('event-day');
+                            const popup = document.createElement('div');
+                            popup.classList.add('event-popup');
+                            popup.innerHTML = events[fullDate].join('<br>');
+                            cell.appendChild(popup);
+
+                            // Affichage au clic
+                            cell.addEventListener('click', () => {
+                                popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                            });
+                        }
+
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+
+                calendarBody.appendChild(row);
+            }
+        }
+
+        prevMonth.addEventListener('click', () => {
+            currentMonth--;
+            if(currentMonth < 0) { currentMonth = 11; currentYear--; }
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        nextMonth.addEventListener('click', () => {
+            currentMonth++;
+            if(currentMonth > 11) { currentMonth = 0; currentYear++; }
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        generateCalendar(currentMonth, currentYear);
+    </script>
+</body>
+</html>

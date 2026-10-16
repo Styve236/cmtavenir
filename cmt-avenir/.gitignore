@@ -1,0 +1,27 @@
+# Dépendances
+node_modules/
+functions/node_modules/
+
+# Environnement et secrets
+.env
+.env.*
+!.env.example
+functions/.env
+functions/.env.*
+*.secret.local
+
+# Base locale de développement
+functions/data/dev-db.json
+
+# Firebase
+.firebase/
+firebase-debug.log
+*-debug.log
+ui-debug.log
+
+# Éditeurs / système
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

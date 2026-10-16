@@ -1,0 +1,21 @@
+{
+  "name": "cmt-avenir-functions",
+  "description": "Backend Express + Firestore du site CMT AVENIR",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cookie-session": "^2.1.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.4.1",
+    "firebase-admin": "^14.5.0",
+    "firebase-functions": "^7.4.0",
+    "helmet": "^8.3.0",
+    "nodemailer": "^10.1.1"
+  }
+}

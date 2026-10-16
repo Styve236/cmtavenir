@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="about">
+            <div class="container">
+                <h1>Politique de confidentialité</h1>
+
+                <p><%= site.company.name %> respecte la vie privée des visiteurs de son site. Cette page explique quelles données sont collectées et comment elles sont utilisées.</p>
+
+                <h3>Quelles données collectons-nous ?</h3>
+                <p>
+                    Lorsque vous utilisez le formulaire de contact, nous collectons uniquement :
+                    votre <strong>nom</strong>, votre <strong>adresse email</strong>, votre
+                    <strong>numéro de téléphone</strong> (facultatif) et le <strong>contenu de votre
+                    message</strong>.
+                </p>
+
+                <h3>Pourquoi ces données ?</h3>
+                <p>
+                    Ces informations servent exclusivement à répondre à votre demande (devis,
+                    renseignement, partenariat). Elles ne sont ni vendues, ni cédées à des tiers à des
+                    fins commerciales.
+                </p>
+
+                <h3>Combien de temps sont-elles conservées ?</h3>
+                <p>
+                    Les messages envoyés sont conservés le temps nécessaire au traitement de votre
+                    demande, puis supprimés. Vous pouvez demander leur suppression à tout moment.
+                </p>
+
+                <h3>Qui a accès à ces données ?</h3>
+                <p>
+                    Seuls les responsables de <%= site.company.name %> ont accès aux messages reçus.
+                    Les données sont stockées via les services de Google Firebase.
+                </p>
+
+                <h3>Cookies</h3>
+                <p>
+                    Ce site n'utilise <strong>aucun cookie publicitaire ni de suivi</strong>. Un cookie
+                    technique de session est utilisé uniquement lorsque vous vous connectez à l'espace
+                    d'administration ; il expire automatiquement après quelques heures.
+                </p>
+
+                <h3>Vos droits</h3>
+                <p>
+                    Vous pouvez demander l'accès, la rectification ou la suppression de vos données en
+                    nous écrivant à <a href="mailto:<%= site.company.emails[0] %>"><%= site.company.emails[0] %></a>
+                    ou en nous appelant au <%= site.company.phones[0] %>.
+                </p>
+
+                <h3>Contact</h3>
+                <p>
+                    Pour toute question relative à cette politique, écrivez à
+                    <a href="mailto:<%= site.company.emails[0] %>"><%= site.company.emails[0] %></a>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

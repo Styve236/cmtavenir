@@ -1,0 +1,188 @@
+{
+  "chantier-01.jpg": {
+    "webp": "chantier-01.webp",
+    "thumb": "thumbs/chantier-01.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "chantier-02.jpg": {
+    "webp": "chantier-02.webp",
+    "thumb": "thumbs/chantier-02.webp",
+    "width": 1020,
+    "height": 765
+  },
+  "chantier-03.jpg": {
+    "webp": "chantier-03.webp",
+    "thumb": "thumbs/chantier-03.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "chantier-04.jpg": {
+    "webp": "chantier-04.webp",
+    "thumb": "thumbs/chantier-04.webp",
+    "width": 1080,
+    "height": 810
+  },
+  "chantier-05.jpg": {
+    "webp": "chantier-05.webp",
+    "thumb": "thumbs/chantier-05.webp",
+    "width": 1080,
+    "height": 1080
+  },
+  "chantier-06.jpg": {
+    "webp": "chantier-06.webp",
+    "thumb": "thumbs/chantier-06.webp",
+    "width": 750,
+    "height": 1000
+  },
+  "chantier-07.jpg": {
+    "webp": "chantier-07.webp",
+    "thumb": "thumbs/chantier-07.webp",
+    "width": 498,
+    "height": 1080
+  },
+  "chantier-08.jpg": {
+    "webp": "chantier-08.webp",
+    "thumb": "thumbs/chantier-08.webp",
+    "width": 750,
+    "height": 1000
+  },
+  "chantier-09.jpg": {
+    "webp": "chantier-09.webp",
+    "thumb": "thumbs/chantier-09.webp",
+    "width": 1000,
+    "height": 750
+  },
+  "chantier-10.jpg": {
+    "webp": "chantier-10.webp",
+    "thumb": "thumbs/chantier-10.webp",
+    "width": 958,
+    "height": 1280
+  },
+  "chantier-11.jpg": {
+    "webp": "chantier-11.webp",
+    "thumb": "thumbs/chantier-11.webp",
+    "width": 498,
+    "height": 1080
+  },
+  "chantier-12.jpg": {
+    "webp": "chantier-12.webp",
+    "thumb": "thumbs/chantier-12.webp",
+    "width": 574,
+    "height": 1020
+  },
+  "chantier-13.jpg": {
+    "webp": "chantier-13.webp",
+    "thumb": "thumbs/chantier-13.webp",
+    "width": 498,
+    "height": 1080
+  },
+  "charpante.jpg": {
+    "webp": "charpante.webp",
+    "thumb": "thumbs/charpante.webp",
+    "width": 1020,
+    "height": 765
+  },
+  "citerne.jpg": {
+    "webp": "citerne.webp",
+    "thumb": "thumbs/citerne.webp",
+    "width": 498,
+    "height": 1080
+  },
+  "defibreur.jpg": {
+    "webp": "defibreur.webp",
+    "thumb": "thumbs/defibreur.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "image.jpg": {
+    "webp": "image.webp",
+    "thumb": "thumbs/image.webp",
+    "width": 1080,
+    "height": 810
+  },
+  "image1.jpg": {
+    "webp": "image1.webp",
+    "thumb": "thumbs/image1.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "image10.jpg": {
+    "webp": "image10.webp",
+    "thumb": "thumbs/image10.webp",
+    "width": 1020,
+    "height": 765
+  },
+  "image2.jpg": {
+    "webp": "image2.webp",
+    "thumb": "thumbs/image2.webp",
+    "width": 467,
+    "height": 675
+  },
+  "image3.jpg": {
+    "webp": "image3.webp",
+    "thumb": "thumbs/image3.webp",
+    "width": 498,
+    "height": 1080
+  },
+  "image5.jpg": {
+    "webp": "image5.webp",
+    "thumb": "thumbs/image5.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "image8.jpg": {
+    "webp": "image8.webp",
+    "thumb": "thumbs/image8.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "partenaire2.jpg": {
+    "webp": "partenaire2.webp",
+    "thumb": "thumbs/partenaire2.webp",
+    "width": 180,
+    "height": 180
+  },
+  "partenaire3.png": {
+    "webp": "partenaire3.webp",
+    "thumb": "thumbs/partenaire3.webp",
+    "width": 223,
+    "height": 82
+  },
+  "PIECE.jpg": {
+    "webp": "PIECE.webp",
+    "thumb": "thumbs/PIECE.webp",
+    "width": 750,
+    "height": 1000
+  },
+  "piece1.jpg": {
+    "webp": "piece1.webp",
+    "thumb": "thumbs/piece1.webp",
+    "width": 958,
+    "height": 1280
+  },
+  "port_cable.jpg": {
+    "webp": "port_cable.webp",
+    "thumb": "thumbs/port_cable.webp",
+    "width": 765,
+    "height": 1020
+  },
+  "vice.jpg": {
+    "webp": "vice.webp",
+    "thumb": "thumbs/vice.webp",
+    "width": 750,
+    "height": 1000
+  },
+  "vice2.jpg": {
+    "webp": "vice2.webp",
+    "thumb": "thumbs/vice2.webp",
+    "width": 750,
+    "height": 1000
+  },
+  "vice3.jpg": {
+    "webp": "vice3.webp",
+    "thumb": "thumbs/vice3.webp",
+    "width": 1000,
+    "height": 750
+  }
+}

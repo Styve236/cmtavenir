@@ -1,0 +1,38 @@
+name: Deploy CMT AVENIR (Firebase)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Test + déploiement
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installation des dépendances
+        run: |
+          npm install
+          npm --prefix functions install
+
+      - name: Vérification de la syntaxe
+        run: npm run lint
+
+      - name: Préparation des identifiants Firebase
+        run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > "$GITHUB_WORKSPACE/service-account.json"
+
+      - name: Déploiement sur Firebase
+        run: |
+          npm install -g firebase-tools
+          firebase deploy --non-interactive --project cmt-avenir
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json

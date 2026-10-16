@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="gallery">
+            <div class="container">
+                <h1>Nos réalisations</h1>
+                <p class="section-lead">Cliquez sur une photo pour l'agrandir. Utilisez les flèches ← → du clavier pour naviguer.</p>
+
+                <% if (galleryCategories && galleryCategories.length) { %>
+                <div class="filter-bar" role="group" aria-label="Filtrer les réalisations par catégorie">
+                    <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Tout</button>
+                    <% galleryCategories.forEach(function (category) { %>
+                    <button type="button" class="chip" data-filter="<%= category %>" aria-pressed="false"><%= category %></button>
+                    <% }); %>
+                </div>
+                <% } %>
+
+                <div class="gallery-grid">
+                    <% gallery.forEach(function (item) { %>
+                    <%- include('partials/gallery-item', { item: item }) %>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

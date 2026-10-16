@@ -1,0 +1,18 @@
+<% if (partners && partners.length) { %>
+<div class="partners-grid">
+    <% partners.forEach(function (partner) { %>
+    <div class="partner-item">
+        <% if (partner.image) { %>
+        <img src="<%= partner.image %>" alt="Logo - <%= partner.name %>" loading="lazy" decoding="async">
+        <% } %>
+        <h4><%= partner.name %></h4>
+        <p><%= partner.description %></p>
+        <% if (partner.url) { %>
+        <a class="partner-link" href="<%= partner.url %>" target="_blank" rel="noopener noreferrer">Visiter le site →</a>
+        <% } %>
+    </div>
+    <% }); %>
+</div>
+<% } else { %>
+<p class="empty-state">Aucun partenaire pour le moment.</p>
+<% } %>

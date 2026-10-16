@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="partners">
+            <div class="container">
+                <h1>Nos Partenaires</h1>
+                <p style="text-align:center; margin-bottom:1rem;">CMT AVENIR travaille avec des partenaires de confiance pour garantir la qualité de ses réalisations.</p>
+                <div id="partners-list">
+                    <%- include('partials/partners-list') %>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

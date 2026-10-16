@@ -1,0 +1,12 @@
+<div class="gallery-item"<% if (item.category) { %> data-category="<%= item.category %>"<% } %>>
+    <% if (item.meta && item.meta.webp) { %>
+    <picture>
+        <source type="image/webp" srcset="<%= item.meta.thumb %> 600w<% if (item.meta.width) { %>, <%= item.meta.webp %> <%= item.meta.width %>w<% } %>" sizes="(max-width: 768px) 100vw, 320px">
+        <img src="<%= item.image %>" alt="<%= item.alt %>" data-full="<%= item.image %>"<% if (item.meta.width) { %> width="<%= item.meta.width %>" height="<%= item.meta.height %>"<% } %> loading="lazy" decoding="async">
+    </picture>
+    <% } else { %>
+    <img src="<%= item.image %>" alt="<%= item.alt %>" data-full="<%= item.image %>" loading="lazy" decoding="async">
+    <% } %>
+    <span class="zoom-hint" aria-hidden="true">+</span>
+    <p><%= item.caption %></p>
+</div>

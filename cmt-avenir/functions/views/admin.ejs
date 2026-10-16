@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="admin">
+            <div class="container">
+                <h1>Administration du site</h1>
+
+                <div id="admin-gate">
+                    <h3>Accès réservé</h3>
+                    <p>Entrez le mot de passe administrateur pour gérer les partenaires et consulter les messages.</p>
+                    <form id="admin-login" autocomplete="off">
+                        <label for="admin-password">Mot de passe</label>
+                        <input type="password" id="admin-password" name="password" required autocomplete="current-password">
+                        <button type="submit" class="btn">Se connecter</button>
+                    </form>
+                    <p class="form-error" id="admin-error" role="alert" hidden>Mot de passe incorrect.</p>
+                </div>
+
+                <div id="admin-panel" hidden>
+                    <p class="admin-note">
+                        Connecté en tant qu'administrateur.
+                        <button type="button" id="admin-logout" class="btn btn-outline">Déconnexion</button>
+                    </p>
+
+                    <div class="admin-grid">
+                        <div class="admin-card">
+                            <h3>Ajouter un partenaire</h3>
+                            <form id="add-partner-form">
+                                <label for="partner-image">Logo (image, 5 Mo max)</label>
+                                <input type="file" id="partner-image" name="image" accept="image/*">
+                                <img id="preview" alt="Aperçu du logo sélectionné">
+
+                                <label for="partner-name">Nom du partenaire</label>
+                                <input type="text" id="partner-name" name="name" required minlength="2" maxlength="80">
+
+                                <label for="partner-description">Description</label>
+                                <textarea id="partner-description" name="description" required maxlength="300"></textarea>
+
+                                <label for="partner-url">Lien du site (optionnel)</label>
+                                <input type="url" id="partner-url" name="url" placeholder="https://exemple.com" maxlength="300">
+
+                                <button type="submit" class="btn">Ajouter le partenaire</button>
+                            </form>
+                            <p class="form-error" id="partner-error" role="alert" hidden></p>
+                        </div>
+
+                        <div class="admin-card">
+                            <div id="partners-admin-list">
+                                <h3>Partenaires affichés</h3>
+                                <p class="admin-note">Chargement…</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card" style="margin-top:2rem;">
+                        <div id="messages-admin-list">
+                            <h3>Messages reçus</h3>
+                            <p class="admin-note">Chargement…</p>
+                        </div>
+                    </div>
+
+                    <div class="admin-card" style="margin-top:2rem;">
+                        <h3>Contenu du site</h3>
+                        <p class="admin-note">Modifiez les chiffres clés, les témoignages et les prestations affichés sur le site public.</p>
+
+                        <form id="content-form">
+                            <fieldset class="content-section">
+                                <legend>Chiffres clés</legend>
+                                <div id="stats-editor" class="editor-list"></div>
+                                <button type="button" class="btn btn-outline" data-add="stats">+ Ajouter un chiffre</button>
+                            </fieldset>
+
+                            <fieldset class="content-section">
+                                <legend>Témoignages</legend>
+                                <div id="testimonials-editor" class="editor-list"></div>
+                                <button type="button" class="btn btn-outline" data-add="testimonials">+ Ajouter un témoignage</button>
+                            </fieldset>
+
+                            <fieldset class="content-section">
+                                <legend>Prestations</legend>
+                                <div id="services-editor" class="editor-list"></div>
+                                <button type="button" class="btn btn-outline" data-add="services">+ Ajouter une prestation</button>
+                            </fieldset>
+
+                            <button type="submit" class="btn">Enregistrer les modifications</button>
+                            <p class="form-error" id="content-error" role="alert" hidden></p>
+                            <p class="form-success" id="content-success" role="status" hidden>Modifications enregistrées.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+    <script src="/js/admin.js?v=<%= assetVersion %>" defer></script>
+</body>
+</html>

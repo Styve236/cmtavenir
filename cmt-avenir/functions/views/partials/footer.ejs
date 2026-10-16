@@ -1,0 +1,62 @@
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col footer-about">
+                <h3><%= site.company.name %></h3>
+                <p><%= site.company.tagline %> — <%= site.company.address %>.</p>
+                <p class="footer-slogan">« <%= site.company.slogan %> »</p>
+                <% var social = site.company.social; %>
+                <% if (social.facebook || social.instagram || social.linkedin || social.x) { %>
+                <ul class="footer-social">
+                    <% if (social.facebook) { %><li><a href="<%= social.facebook %>" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></li><% } %>
+                    <% if (social.instagram) { %><li><a href="<%= social.instagram %>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a></li><% } %>
+                    <% if (social.linkedin) { %><li><a href="<%= social.linkedin %>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li><% } %>
+                    <% if (social.x) { %><li><a href="<%= social.x %>" target="_blank" rel="noopener noreferrer" aria-label="X">X</a></li><% } %>
+                </ul>
+                <% } %>
+            </div>
+
+            <div class="footer-col">
+                <h3>Nos prestations</h3>
+                <ul>
+                    <% site.serviceGroups.forEach(function (group) { %>
+                    <li><a href="/services"><%= group.title %></a></li>
+                    <% }); %>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Entreprise</h3>
+                <ul>
+                    <li><a href="/a-propos">À propos</a></li>
+                    <li><a href="/galerie">Nos réalisations</a></li>
+                    <li><a href="/partenaires">Nos partenaires</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/mentions-legales">Mentions légales</a></li>
+                    <li><a href="/confidentialite">Confidentialité</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul class="footer-contact">
+                    <% site.company.phones.forEach(function (phone) { %>
+                    <li><a href="tel:<%= phone.replace(/\s/g, '') %>"><%= phone %></a></li>
+                    <% }); %>
+                    <% site.company.emails.forEach(function (email) { %>
+                    <li><a href="mailto:<%= email %>"><%= email %></a></li>
+                    <% }); %>
+                    <li><a href="https://wa.me/<%= site.company.whatsapp %>" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    <li><%= site.company.address %></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="footer-bottom">
+            &copy; <span data-year><%= year %></span> <%= site.company.name %> — <%= site.company.address %>. Tous droits réservés.
+            <a href="/admin" class="footer-admin" title="Espace administrateur" aria-label="Espace administrateur">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5Zm-3 8V6a3 3 0 0 1 6 0v3H9Zm3 4a1.75 1.75 0 0 1 1 3.2V18a1 1 0 0 1-2 0v-1.8A1.75 1.75 0 0 1 12 13Z"/></svg>
+            </a>
+        </p>
+    </div>
+</footer>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="about">
+            <div class="container">
+                <h1>À propos de CMT AVENIR</h1>
+                <p>CMT AVENIR est une entreprise spécialisée en chaudronnerie industrielle, métallurgie et construction mécanique. Fondée avec une vision d'excellence, nous nous engageons à fournir des solutions de haute qualité pour répondre aux besoins complexes de nos clients dans divers secteurs industriels.</p>
+
+                <div class="ceo-message">
+                    <div class="ceo-photo">
+                        <% if (ceoImage && ceoImage.webp) { %>
+                        <picture>
+                            <source type="image/webp" srcset="<%= ceoImage.thumb %>" sizes="200px">
+                            <img src="/images/image.jpg" alt="NGUTCHOU TAKOUMBE LUC LEGRAND, dirigeant de CMT AVENIR" width="200" height="200" loading="lazy" decoding="async">
+                        </picture>
+                        <% } else { %>
+                        <img src="/images/image.jpg" alt="NGUTCHOU TAKOUMBE LUC LEGRAND, dirigeant de CMT AVENIR" width="200" height="200" loading="lazy" decoding="async">
+                        <% } %>
+                    </div>
+                    <div class="ceo-description">
+                        <h3>« Je suis la voie par laquelle on va reconstruire notre pays et je sais qu'avec mon staff on pourra aller encore plus loin et faire de nouvelles révélations. »</h3>
+                        <p><strong>NGUTCHOU TAKOUMBE LUC LEGRAND</strong> — Dirigeant de CMT AVENIR</p>
+                        <blockquote>« Chez CMT AVENIR, nous croyons que l'excellence en chaudronnerie et construction mécanique est la clé du succès de nos clients. Avec des années d'expérience dans le secteur, notre équipe s'engage à fournir des solutions innovantes et durables qui dépassent les attentes. Notre passion pour la métallurgie nous pousse à innover constamment et à maintenir les plus hauts standards de qualité et de sécurité. »</blockquote>
+                    </div>
+                </div>
+
+                <h3>Notre expertise</h3>
+                <p>Avec des années d'expérience, notre équipe d'experts maîtrise les techniques les plus avancées en soudure, découpe, pliage et fabrication de structures métalliques. Nous travaillons avec des matériaux de qualité supérieure pour garantir la durabilité et la performance de nos produits.</p>
+
+                <h3>Notre mission</h3>
+                <p>Devenir le partenaire de confiance des entreprises qui recherchent des solutions innovantes et fiables en chaudronnerie et construction mécanique. Nous nous efforçons de dépasser les attentes de nos clients en offrant des services personnalisés et une qualité irréprochable.</p>
+
+                <h3>Nos valeurs</h3>
+                <ul class="values-list">
+                    <li><strong>Excellence :</strong> nous visons la perfection dans chaque projet.</li>
+                    <li><strong>Innovation :</strong> nous adoptons les dernières technologies pour améliorer nos processus.</li>
+                    <li><strong>Fiabilité :</strong> nous honorons nos engagements et respectons les délais.</li>
+                    <li><strong>Sécurité :</strong> la sécurité est au cœur de toutes nos opérations.</li>
+                </ul>
+
+                <h3>Notre dirigeant</h3>
+                <p>CMT AVENIR est dirigée par <strong>NGUTCHOU TAKOUMBE LUC LEGRAND</strong>, un leader visionnaire avec une vaste expérience dans le domaine de la métallurgie et de la construction mécanique. Sous sa direction, l'entreprise continue de croître et d'exceller dans son secteur.</p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

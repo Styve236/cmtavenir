@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="about">
+            <div class="container">
+                <h1>Mentions légales</h1>
+
+                <h3>Éditeur du site</h3>
+                <p>
+                    <%= site.company.name %><br>
+                    <%= site.company.address %><br>
+                    Téléphone : <%= site.company.phones[0] %><br>
+                    Email : <a href="mailto:<%= site.company.emails[0] %>"><%= site.company.emails[0] %></a>
+                </p>
+
+                <h3>Responsable de la publication</h3>
+                <p><%= site.company.founder %></p>
+
+                <h3>Hébergement</h3>
+                <p>
+                    Ce site est hébergé par Google Firebase (Google Cloud).<br>
+                    Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlande.
+                </p>
+
+                <h3>Propriété intellectuelle</h3>
+                <p>
+                    L'ensemble des contenus présents sur ce site (textes, photographies, logos, mise en
+                    page) est la propriété de <%= site.company.name %>, sauf mention contraire. Toute
+                    reproduction, représentation ou diffusion, totale ou partielle, sans autorisation
+                    écrite préalable est interdite.
+                </p>
+
+                <h3>Données personnelles</h3>
+                <p>
+                    Le traitement des données transmises via le formulaire de contact est décrit dans
+                    notre <a href="/confidentialite">politique de confidentialité</a>.
+                </p>
+
+                <h3>Responsabilité</h3>
+                <p>
+                    <%= site.company.name %> s'efforce d'assurer l'exactitude des informations diffusées
+                    sur ce site, sans pouvoir garantir qu'elles soient exemptes d'erreurs. Les
+                    informations sont fournies à titre indicatif et peuvent évoluer.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

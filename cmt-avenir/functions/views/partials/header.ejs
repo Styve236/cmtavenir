@@ -1,0 +1,37 @@
+<header>
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <span class="topbar-address">
+                <svg class="topbar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                <%= site.company.address %>
+            </span>
+            <span class="topbar-spacer"></span>
+            <a class="topbar-phone" href="tel:<%= site.company.phones[0].replace(/\s/g, '') %>">
+                <svg class="topbar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+                <%= site.company.phones[0] %>
+            </a>
+            <span class="topbar-sep" aria-hidden="true">|</span>
+            <a class="topbar-email" href="mailto:<%= site.company.emails[0] %>"><%= site.company.emails[0] %></a>
+        </div>
+    </div>
+
+    <div class="container header-main">
+        <div class="brand"><a href="/"><%= site.company.name %></a></div>
+        <nav aria-label="Navigation principale">
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/"<%= current === '/' ? ' aria-current="page"' : '' %>>Accueil</a></li>
+                <li><a href="/a-propos"<%= current === '/a-propos' ? ' aria-current="page"' : '' %>>À propos</a></li>
+                <li><a href="/services"<%= current === '/services' ? ' aria-current="page"' : '' %>>Services</a></li>
+                <li><a href="/galerie"<%= current === '/galerie' ? ' aria-current="page"' : '' %>>Réalisations</a></li>
+                <li><a href="/partenaires"<%= current === '/partenaires' ? ' aria-current="page"' : '' %>>Partenaires</a></li>
+                <li><a href="/contact"<%= current === '/contact' ? ' aria-current="page"' : '' %>>Contact</a></li>
+            </ul>
+            <a href="/contact" class="btn header-cta">Demander un devis</a>
+            <button class="hamburger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </div>
+</header>

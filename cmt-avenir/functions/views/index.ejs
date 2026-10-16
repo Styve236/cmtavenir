@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <!-- ============ Bandeau d'accueil ============ -->
+        <section class="banner">
+            <div class="container">
+                <p class="banner-kicker">La qualité qui rassure</p>
+                <h1>Maîtriser le métal,<br>construire l'avenir</h1>
+                <p><%= site.company.tagline %> — <%= site.company.address %></p>
+                <p class="banner-cta">
+                    <a href="/contact" class="btn">Demander un devis</a>
+                    <a href="/galerie" class="btn btn-outline">Voir nos réalisations</a>
+                </p>
+
+                <% if (site.badges && site.badges.length) { %>
+                <ul class="hero-badges">
+                    <% site.badges.forEach(function (badge) { %>
+                    <li class="badge-pill"><%= badge %></li>
+                    <% }); %>
+                </ul>
+                <% } %>
+            </div>
+        </section>
+
+        <!-- ============ Chiffres clés ============ -->
+        <% if (site.stats && site.stats.length) { %>
+        <section class="stats-band">
+            <div class="container">
+                <div class="stats-grid">
+                    <% site.stats.forEach(function (stat) { %>
+                    <div class="stat">
+                        <strong><%= stat.value %></strong>
+                        <span><%= stat.label %></span>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+        <% } %>
+
+        <!-- ============ Présentation ============ -->
+        <section class="presentation">
+            <div class="container">
+                <h2>Bienvenue chez <%= site.company.name %></h2>
+                <p class="section-lead"><%= site.company.name %> est une entreprise spécialisée en chaudronnerie industrielle, métallurgie et construction mécanique. Nous offrons des solutions de haute qualité pour tous vos besoins en fabrication et maintenance industrielle, de la conception à la livraison.</p>
+
+                <% if (site.features && site.features.length) { %>
+                <ul class="check-list">
+                    <% site.features.forEach(function (feature) { %>
+                    <li><%= feature %></li>
+                    <% }); %>
+                </ul>
+                <% } %>
+
+                <p class="section-cta">
+                    <a href="/a-propos" class="btn btn-outline">En savoir plus sur nous</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ Prestations ============ -->
+        <section class="services section-alt">
+            <div class="container">
+                <h2>Nos prestations industrielles</h2>
+                <div class="services-grid">
+                    <% site.serviceGroups.forEach(function (group) { %>
+                    <div class="service-item">
+                        <h3><%= group.title %></h3>
+                        <p><%= group.summary %></p>
+                    </div>
+                    <% }); %>
+                </div>
+                <p class="section-cta">
+                    <a href="/services" class="btn">Découvrir toutes nos prestations</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ Partenaires ============ -->
+        <section class="partners">
+            <div class="container">
+                <h2>Ils nous font confiance</h2>
+                <div id="partners-list">
+                    <%- include('partials/partners-list') %>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Aperçu des réalisations ============ -->
+        <section class="gallery section-alt">
+            <div class="container">
+                <h2>Nos réalisations</h2>
+                <p class="section-lead">Des fabrications sur mesure conçues pour les entreprises et les organismes publics.</p>
+                <div class="gallery-grid">
+                    <% galleryPreview.forEach(function (item) { %>
+                    <%- include('partials/gallery-item', { item: item }) %>
+                    <% }); %>
+                </div>
+                <p class="section-cta">
+                    <a href="/galerie" class="btn">Voir les <%= galleryTotal %> réalisations</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ Pourquoi nous choisir ============ -->
+        <section class="why-us">
+            <div class="container">
+                <h2>Pourquoi choisir <%= site.company.name %> ?</h2>
+                <p class="section-lead">Un partenaire industriel de proximité, engagé sur la qualité, les délais et la sécurité de ses fabrications.</p>
+                <div class="features-grid">
+                    <% site.whyUs.forEach(function (item, index) { %>
+                    <div class="feature-card">
+                        <span class="icon" aria-hidden="true"><%= String(index + 1).padStart(2, '0') %></span>
+                        <h4><%= item.title %></h4>
+                        <p><%= item.text %></p>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Témoignages (si renseignés) ============ -->
+        <% if (site.testimonials && site.testimonials.length) { %>
+        <section class="testimonials section-alt">
+            <div class="container">
+                <h2>Ils parlent de nous</h2>
+                <div class="testimonials-grid">
+                    <% site.testimonials.forEach(function (item) { %>
+                    <figure class="testimonial">
+                        <blockquote><%= item.quote %></blockquote>
+                        <figcaption>
+                            <span class="avatar" aria-hidden="true"><%= item.name.charAt(0).toUpperCase() %></span>
+                            <span>
+                                <strong><%= item.name %></strong>
+                                <small><%= item.role %></small>
+                            </span>
+                        </figcaption>
+                    </figure>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+        <% } %>
+
+        <!-- ============ Appel à l'action ============ -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>Prêt à démarrer votre projet ?</h2>
+                <p>Contactez nos équipes pour discuter de vos besoins en chaudronnerie, construction mécanique ou maintenance industrielle.</p>
+                <p class="banner-cta">
+                    <a href="/contact" class="btn">Demander un devis</a>
+                    <a href="https://wa.me/<%= site.company.whatsapp %>?text=<%= encodeURIComponent(site.company.whatsappMessage) %>" class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

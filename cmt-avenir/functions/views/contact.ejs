@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="contact">
+            <div class="container">
+                <h1>Contactez-nous</h1>
+                <p class="section-lead">Une question, une demande de prix ou un projet à étudier ? Écrivez-nous ou appelez-nous directement.</p>
+
+                <form id="contact-form" method="POST" action="<%= formspreeEndpoint || '' %>" novalidate>
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required autocomplete="name" minlength="2" maxlength="80">
+
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required autocomplete="email" maxlength="120">
+
+                    <label for="phone">Téléphone :</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40" placeholder="+237 6 ...">
+
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" required minlength="10" maxlength="2000" placeholder="Décrivez votre besoin (type de pièce, dimensions, quantités…)"></textarea>
+
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="_gotcha">Ne pas remplir ce champ</label>
+                        <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <button type="submit" class="btn">Envoyer le message</button>
+                </form>
+
+                <div id="success-message" role="status" hidden>Votre message a bien été envoyé. Nous vous répondrons rapidement.</div>
+                <div id="error-message" role="alert" hidden>L'envoi a échoué. Vous pouvez nous joindre directement par téléphone ou WhatsApp.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Téléphone</h3>
+                        <% site.company.phones.forEach(function (phone) { %>
+                        <p><a href="tel:<%= phone.replace(/\s/g, '') %>"><%= phone %></a></p>
+                        <% }); %>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <% site.company.emails.forEach(function (email) { %>
+                        <p><a href="mailto:<%= email %>"><%= email %></a></p>
+                        <% }); %>
+                    </div>
+                    <div class="contact-card">
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/<%= site.company.whatsapp %>?text=<%= encodeURIComponent(site.company.whatsappMessage) %>" target="_blank" rel="noopener noreferrer">Discuter maintenant</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Adresse</h3>
+                        <p><%= site.company.address %></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Horaires</h3>
+                        <p><%= site.company.hours %></p>
+                    </div>
+                </div>
+
+                <div class="map-frame">
+                    <iframe
+                        title="Localisation de CMT AVENIR à Douala"
+                        src="https://www.google.com/maps?q=Douala%2C%20Cameroun&output=embed"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <p class="section-cta">Nous sommes impatients de vous aider avec vos besoins en chaudronnerie et construction mécanique !</p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>

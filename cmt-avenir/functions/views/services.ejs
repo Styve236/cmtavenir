@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+    <%- include('partials/header') %>
+
+    <main id="contenu">
+        <section class="services">
+            <div class="container">
+                <h1>Nos services &amp; solutions industrielles</h1>
+                <p class="section-lead"><%= site.company.name %> conçoit, fabrique et installe des ensembles métalliques et mécaniques pour l'industrie. Découvrez nos quatre grands domaines d'intervention.</p>
+
+                <div class="services-grid">
+                    <% site.serviceGroups.forEach(function (group) { %>
+                    <div class="service-item">
+                        <h3><%= group.title %></h3>
+                        <p><%= group.summary %></p>
+                        <ul class="service-points">
+                            <% group.points.forEach(function (point) { %>
+                            <li><%= point %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us section-alt">
+            <div class="container">
+                <h2>Notre méthode de travail</h2>
+                <p class="section-lead">De l'étude de votre besoin à la livraison, nous vous accompagnons à chaque étape du projet.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="icon" aria-hidden="true">01</span>
+                        <h4>Écoute et étude</h4>
+                        <p>Analyse de votre besoin, des plans et des contraintes de votre environnement industriel.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon" aria-hidden="true">02</span>
+                        <h4>Devis et conception</h4>
+                        <p>Proposition technique et financière claire, avec choix des matériaux et des procédés.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon" aria-hidden="true">03</span>
+                        <h4>Fabrication en atelier</h4>
+                        <p>Découpe, pliage, soudure et assemblage réalisés par nos techniciens qualifiés.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon" aria-hidden="true">04</span>
+                        <h4>Contrôle et livraison</h4>
+                        <p>Vérification qualité de la fabrication, installation sur site et mise en service.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Un projet de fabrication ou de maintenance ?</h2>
+                <p>Envoyez-nous vos plans ou décrivez votre besoin : nous vous répondons avec un devis détaillé.</p>
+                <p class="banner-cta">
+                    <a href="/contact" class="btn">Demander un devis</a>
+                    <a href="https://wa.me/<%= site.company.whatsapp %>?text=<%= encodeURIComponent(site.company.whatsappMessage) %>" class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+</html>
